@@ -21,14 +21,21 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-    "@/*": ["./src/*"],
-    "@components/*": ["./src/components/*"],
-    "@features/*": ["./src/features/*"],
-    "@assets/*": ["./src/assets/*"],
-    "@pages/*":["./src/pages/*"],
-    "@storages/*":["./src/storages/*"],
-  }
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@features/*": ["./src/features/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@icons/*": ["./src/assets/icons/*"],
+      "@images/*": ["./src/assets/images/*"],
+      "@pages/*":["./src/pages/*"],
+      "@storages/*":["./src/storages/*"],
+    }
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "files": [
+    // Components types
+    "src/components/Modal/modal.d.ts",
+    "src/components/Sidebar/sidebar.d.ts",
+  ],
 }

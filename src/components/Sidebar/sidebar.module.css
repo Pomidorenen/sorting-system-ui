@@ -1,0 +1,31 @@
+.sidebar-container{
+    position: absolute;
+    width: 20dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 4px;
+    background-color:var(--second-color);
+}
+
+.sidebar-list__item{
+    list-style: none;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    min-width: 120px;
+    border-radius: 12px;
+    background-color: var(--second-color);
+    transition: 0.1s ease-in-out background-color;
+}
+
+.sidebar-list__item:hover{
+    background-color: var(--active-color);
+}
+.sidebar-list__item--active{
+    background-color: var(--active-color);
+}
+
