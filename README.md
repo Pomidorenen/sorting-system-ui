@@ -1,4 +1,4 @@
-<img width="665" height="590" alt="image" src="https://github.com/user-attachments/assets/dc545c3e-beb2-45c7-9d0f-3fac3d6dcc5c" />
+
 # Tauri + React + Typescript
 
 This template should help get you started developing with Tauri, React and Typescript in Vite.
