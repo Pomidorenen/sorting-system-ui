@@ -38,6 +38,7 @@
     // Components types
     "src/components/Modal/modal.d.ts",
     "src/components/Sidebar/sidebar.d.ts",
-    "src/components/Form/form.d.ts"
+    "src/components/Form/form.d.ts",
+    "src/components/Select/select.d.ts"
   ],
 }

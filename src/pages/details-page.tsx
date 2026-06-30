@@ -1,25 +1,32 @@
 import "@styles/details.css";
-import { Sidebar } from "@components/Sidebar";
-import OrderIcon from "@icons/order-icon.svg";
-import DetailIcon from "@icons/detail-icon.svg";
+import { useState } from "react";
+import { InputSearch } from "@/components/Input";
+import TemplatePage from "./template-page";
+import { Select } from "@components/Select";
 
 
-const SidebarItems = [{
-  title: "Детали",
-  image: DetailIcon
-},{
-  title:"Заказы",
-  image: OrderIcon
-}];
+const templateOptions:Array<Select.IOption> = [
+  {
+    name:"Все",
+    value:"All"
+  },
+  {
+    name:"Другой вариант",
+    value:"Other"
+  }
+]
 
-function MainPage(){
+function DetailPage(){
+    const [searchValue, setSearchValue] = useState<string>("");
     return (
-    <section className="details-page">
-        <Sidebar items={SidebarItems}/>  
-        <section className="details-page-content">
-          main
-        </section>
-    </section>);
+    <TemplatePage>
+      <InputSearch setValue={setSearchValue} value={searchValue}/>
+      <section>
+        <Select options={templateOptions}/>
+        <Select options={templateOptions}/>
+        <Select options={templateOptions}/>
+      </section>
+    </TemplatePage>);
 }
 
-export default MainPage;
+export default DetailPage;

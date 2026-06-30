@@ -1,0 +1,10 @@
+.template-page{
+    display: flex;
+    gap:12px;
+}
+
+
+.template-page-content{
+    width: 70dvw;
+    padding: 12px;
+}

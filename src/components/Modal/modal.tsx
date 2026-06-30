@@ -1,5 +1,5 @@
-
 import { createPortal } from 'react-dom';
+
 function Modal({children,title}:Modal.IModalProps){
     
     return createPortal(

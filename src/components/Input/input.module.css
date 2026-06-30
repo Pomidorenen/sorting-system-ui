@@ -11,11 +11,34 @@
 }
 
 
-.input-form__input{
+.input-form__input,.input-search__input{
     min-width: 248px;
     background-color: #E6E8E9;
     box-shadow:none;
 
     border-radius:0px ;
+
+}
+
+.input-form__input{
     border-bottom: 1px solid;
+}
+
+.input-search{
+    display: flex;
+    justify-content: start;
+    gap: 4px;
+
+    padding: 8px;
+
+    border-radius: 4px;
+    background-color: var(--input-color);
+}
+.input-search__image{
+
+}
+.input-search__input{
+    flex-grow: 1; 
+    background-color: var(--input-color);
+    color: var(--text-color);
 }

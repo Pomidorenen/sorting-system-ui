@@ -17,9 +17,10 @@
   -webkit-text-size-adjust: 100%;
   
   /* var colors */
-  --background-color: #3E3E42;
+  --background-color: #28282A;
   --second-color: #181819;
   --active-color: #46464A;
+  --input-color: #3E3E42;
   --text-color:#f6f6f6;
 }
 
