@@ -1,0 +1,12 @@
+.details-page{
+    display: flex;
+    gap:12px;
+}
+
+
+.details-page-content{
+
+    width: 70dvw;
+
+    padding: 12px;
+}

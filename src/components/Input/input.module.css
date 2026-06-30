@@ -1,0 +1,21 @@
+.input-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.input-form-title{
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+
+.input-form__input{
+    min-width: 248px;
+    background-color: #E6E8E9;
+    box-shadow:none;
+
+    border-radius:0px ;
+    border-bottom: 1px solid;
+}

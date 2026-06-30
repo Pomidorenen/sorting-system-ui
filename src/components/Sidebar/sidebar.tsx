@@ -1,17 +1,15 @@
-import { createPortal } from 'react-dom';
 import SidebarItem from './sidebar-item';
 import styles from "./sidebar.module.css";
 
 
 function Sidebar({items}:Sidebar.ISidebarProps){
-    return createPortal( 
+    return(
         <nav className={styles["sidebar-container"]}>
-            <ul>
+            <ul className={styles["sidebar-list"]}>
                 {items && items.map((item,i)=><SidebarItem key={i} {...item}/>)}
             </ul>
-        </nav>,
-        document.getElementById("sidebar") as HTMLElement
-    );
+        </nav>
+        );
 }
 
 

@@ -1,0 +1,16 @@
+.auth-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+    
+    width: 100%;
+    min-height: 100dvh;
+  
+    background-image: url("../assets/images/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
