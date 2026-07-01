@@ -21,10 +21,12 @@ function DetailPage(){
     return (
     <TemplatePage>
       <InputSearch setValue={setSearchValue} value={searchValue}/>
-      <section>
-        <Select options={templateOptions}/>
-        <Select options={templateOptions}/>
-        <Select options={templateOptions}/>
+      <section className="sort-container">
+        <Select title="Тип детали" options={templateOptions}/>
+        <Select title="Партия" options={templateOptions}/>
+        <Select title="Статус" options={templateOptions}/>
+        <Select title="Заказ" options={templateOptions}/>
+        <Select title="Склад" options={templateOptions}/>
       </section>
     </TemplatePage>);
 }
