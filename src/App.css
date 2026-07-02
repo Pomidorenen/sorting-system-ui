@@ -17,7 +17,8 @@
   -webkit-text-size-adjust: 100%;
   
   /* var colors */
-  --background-color: #28282A;
+  --background-color: #303036 ;  /*  28282A*/
+  --second-background-color:  #26265A;
   --second-color: #181819;
   --active-color: #46464A;
   --input-color: #3E3E42;
@@ -25,8 +26,8 @@
 }
 
 body{
-    background-color: var(--background-color);
-    background-image: none;
+    background: var(--background-color);
+    background: linear-gradient(135deg, var(--second-background-color), var(--background-color));
     color: var(--text-color);
 }
 a{

@@ -17,7 +17,6 @@
     box-shadow:none;
 
     border-radius:0px ;
-
 }
 
 .input-form__input{
@@ -29,16 +28,16 @@
     justify-content: start;
     gap: 4px;
 
-    padding: 8px;
-
-    border-radius: 4px;
+    padding: 4px;
+    padding-left: 8px;
+    border-radius: 24px;
     background-color: var(--input-color);
 }
 .input-search__image{
 
 }
 .input-search__input{
-    flex-grow: 1; 
+    flex-grow: 0.95; 
     background-color: var(--input-color);
     color: var(--text-color);
 }
