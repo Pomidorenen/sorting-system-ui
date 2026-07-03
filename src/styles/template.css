@@ -1,10 +1,36 @@
 .template-page{
     display: flex;
+    flex-direction: column;
+
     gap:16px;
 }
 
-
-.template-page-content{
-    width: 70dvw;
+.template-navbar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:16px;
+    width: calc(100dvw - 24px);
     padding: 12px;
+}
+.template-navbar__search{
+    flex-grow: 0.9;
+}
+.template-navbar__logo{
+    display: block;
+    align-self: center;
+    justify-self: center;
+    flex-grow: 0.1;
+    margin-left: 48px;
+}
+.template-navbar__buttons{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    gap: 4px;
+    flex-grow: 0.2;
+}
+.template-page-content{
+    width: 100dvw;
 }

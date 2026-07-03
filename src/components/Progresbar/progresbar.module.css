@@ -1,0 +1,29 @@
+.progresbar-circle-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  display: block;
+}
+
+.progress-circle {
+  transition: stroke-dashoffset 0.5s ease, stroke 0.3s ease;
+}
+
+.progresbar-circle-label {
+    --size-bar:120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: calc(var(--size-bar) / 6);
+    font-weight: bold;
+
+    color:var(--active-color,--text-color);
+    user-select: none;
+    pointer-events: none;
+}

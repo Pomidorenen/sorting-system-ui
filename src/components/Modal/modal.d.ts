@@ -1,6 +1,8 @@
 namespace Modal {
     interface IModalProps extends React.HTMLAttributes<HTMLDivElement> {
-      children?: React.ReactNode;
-      title?: string
+      isOpen: boolean;
+      onClose: () => void;
+      title: string;
+      children: React.ReactNode;
   }
 }

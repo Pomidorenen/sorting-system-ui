@@ -1,24 +1,22 @@
 
 import "@styles/template.css";
-import { Sidebar } from "@components/Sidebar";
-import OrderIcon from "@icons/order-icon.svg";
-import DetailIcon from "@icons/detail-icon.svg";
-
-const SidebarItems = [{
-    title: "Детали",
-    image: DetailIcon,
-    link:"/"
-},{
-    title:"Заказы",
-    image: OrderIcon,
-    link:"/orders"
-}];
-
+import { useState } from "react";
+import {ModalDetailInfo, ModalOrderInfo, ModalScanInfo } from "@components/Modal";
+import { InputSearch } from "@components/Input";
 
 function TemplatePage({children}:{children?:React.ReactNode}){
+    const [searchValue, setSearchValue] = useState<string>("");
     return (
     <section className="template-page">
-        <Sidebar items={SidebarItems}/>  
+        <nav className="template-navbar">
+            <h1 className="template-navbar__logo">Sorting-system</h1>
+            <InputSearch className="template-navbar__search" setValue={setSearchValue} value={searchValue}/>
+            <div className="template-navbar__buttons">
+                <ModalDetailInfo/>
+                <ModalOrderInfo/>
+                <ModalScanInfo/>
+            </div>
+        </nav>
         <section className="template-page-content">
             {children}
         </section>

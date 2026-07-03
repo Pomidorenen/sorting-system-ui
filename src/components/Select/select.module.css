@@ -30,7 +30,7 @@
 
 .select-content:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: var(--input-color);
 }
 
 .select-option {

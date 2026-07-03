@@ -2,13 +2,14 @@
   padding: 0;
   margin: 0;
 }
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
-  color: #0f0f0f;
+  color: var(--text-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,14 +17,27 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   
-  /* var colors */
-  --background-color: #303036 ;  /*  28282A*/
-  --second-background-color:  #26265A;
-  --second-color: #181819;
-  --active-color: #46464A;
-  --input-color: #3E3E42;
-  --text-color:#f6f6f6;
+/* var colors */
+
+/* blue color vars */
+  --background-color:rgba(47, 49, 79, 1);
+  --second-background-color:rgba(37, 38, 67, 1);
+  --text-color:rgba(250, 253, 252, 1);
+  --button-color:rgba(95, 154, 198, 1);
+  --button-text-color:rgba(0, 0, 0, 1);
+  --hover-color: color-mix(var( --button-color),var(  --text-color));
+  --input-color:rgba(72, 73, 100, 1);
+
+/* cactus color vars */
+  /* --background-color:#313336;
+  --second-background-color:rgba(35, 38, 41, 1);
+  --text-color:rgba(255, 255, 255, 1);
+  --button-color:rgba(134, 194, 50, 0.9804);
+  --button-text-color:rgba(0, 0, 0, 1);
+  --hover-color: color-mix(var( --button-color),var(  --text-color));
+  --input-color:rgba(72, 73, 100, 1); */
 }
+
 
 body{
     background: var(--background-color);
@@ -46,8 +60,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
+  color: var(--text-color);
+  background-color: var(--input-color);
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
