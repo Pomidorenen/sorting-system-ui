@@ -1,4 +1,3 @@
-import { DataType } from 'csstype';
 
 namespace Progresbar{
     interface IProgresBarProps extends React.HTMLAttributes<HTMLDivElement>{
