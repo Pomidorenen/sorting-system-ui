@@ -1,17 +1,20 @@
 import { useState } from "react";
-import Modal from "./modal";
 import { IconTable } from '@tabler/icons-react';
 import { Button } from "@components/Button";
-
+import ModalInfo from "./modal-info";
 function ModalDetailInfo(){
     const [isOpen, setIsOpen] = useState(false);
     return <>
         <Button onClick={()=>setIsOpen(true)}>
             <IconTable />
         </Button>
-        <Modal title="scan" isOpen={isOpen} onClose={()=>setIsOpen(false)}>
-            modal
-        </Modal>
+        <ModalInfo  title="Detail" 
+                    isOpen={isOpen} 
+                    onClose={()=>setIsOpen(false)}
+                    body={<div>asd</div>}
+                    sidebar={<div>asda</div>}
+                    action={<Button>Сохраннить</Button>}
+                    />
     </>
 }
 

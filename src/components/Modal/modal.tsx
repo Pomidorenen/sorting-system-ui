@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from 'react-dom';
 import { IconXFilled, IconInfoCircleFilled } from '@tabler/icons-react';
 
-function Modal({children,title,isOpen,onClose}:Modal.IModalProps){
+function Modal({children,iconTitle,title,isOpen,onClose}:Modal.IModalProps){
     const [isClosing, setIsClosing] = useState(false);
 
     const onCloseHandler = () => {
@@ -40,7 +40,7 @@ function Modal({children,title,isOpen,onClose}:Modal.IModalProps){
                     onClick={(e)=>e.stopPropagation()}>
                 <header className={styles["modal-header"]}>
                         <div className={styles["modal-title"]}>
-                            <IconInfoCircleFilled  size={48} />
+                            {iconTitle?iconTitle:<IconInfoCircleFilled  size={48} />}
                             <h2>
                                 {title}
                             </h2>

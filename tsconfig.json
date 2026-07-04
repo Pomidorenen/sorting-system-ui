@@ -40,6 +40,7 @@
     "src/components/Form/form.d.ts",
     "src/components/Select/select.d.ts",
     "src/components/Button/button.d.ts",
-    "src/components/Progresbar/progresbar.d.ts"
+    "src/components/Progresbar/progresbar.d.ts",
+    "src/components/List/list.d.ts"
   ],
 }
