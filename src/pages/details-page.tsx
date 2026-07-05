@@ -1,9 +1,9 @@
 import "@styles/details.css";
 import TemplatePage from "./template-page";
 import { Select } from "@components/Select";
-import { ProgresbarRing } from "@/components/Progresbar";
-import { Button } from "@/components/Button";
+import { Button } from "@components/Button";
 import { IconSearch, IconX } from "@tabler/icons-react";
+import { Table } from "@components/Table";
 
 const templateOptions:Array<Select.IOption> = [
   {
@@ -28,11 +28,11 @@ function DetailPage(){
         <Button>
           <IconSearch/>
         </Button>
-        <Button >
+        <Button>
           <IconX/>
         </Button>
       </section>
-      <ProgresbarRing size={400} value={10} maxValue={10}/>
+       <Table header={[{text:"1".repeat(100)},{text:"title 2"},{text:"title 3"}]} body={new Array(3).fill(["1".repeat(10),"2".repeat(10),<Button>asd</Button>])}/>
     </TemplatePage>);
 }
 

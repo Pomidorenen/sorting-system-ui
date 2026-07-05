@@ -32,5 +32,9 @@
     flex-grow: 0.2;
 }
 .template-page-content{
-    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    gap: 16px;
 }

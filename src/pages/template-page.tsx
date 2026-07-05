@@ -1,11 +1,18 @@
 
 import "@styles/template.css";
+import { IconListDetails, IconClipboard } from "@tabler/icons-react";
 import { useState } from "react";
-import {ModalDetailInfo, ModalOrderInfo, ModalScanInfo } from "@components/Modal";
+import { useNavigate } from "react-router";
+import { ModalDetailInfo, ModalOrderInfo, ModalScanInfo } from "@components/Modal";
 import { InputSearch } from "@components/Input";
+import { Button } from "@components/Button";
+
+
 
 function TemplatePage({children}:{children?:React.ReactNode}){
     const [searchValue, setSearchValue] = useState<string>("");
+    const navigate = useNavigate();
+
     return (
     <section className="template-page">
         <nav className="template-navbar">
@@ -15,6 +22,12 @@ function TemplatePage({children}:{children?:React.ReactNode}){
                 <ModalDetailInfo/>
                 <ModalOrderInfo/>
                 <ModalScanInfo/>
+                <Button onClick={()=>navigate("/")}>
+                    <IconListDetails/>
+                </Button>
+                <Button onClick={()=>navigate("/orders")}>
+                    <IconClipboard/>
+                </Button>
             </div>
         </nav>
         <section className="template-page-content">
