@@ -1,9 +1,9 @@
-import "@styles/details.css";
 import TemplatePage from "./template-page";
 import { Select } from "@components/Select";
 import { Button } from "@components/Button";
 import { IconSearch, IconX } from "@tabler/icons-react";
-import { Table } from "@components/Table";
+import { TableDetails } from "@/components/Table";
+
 
 const templateOptions:Array<Select.IOption> = [
   {
@@ -15,24 +15,54 @@ const templateOptions:Array<Select.IOption> = [
     value:"Other"
   }
 ]
-
+const templateData:Array<Table.ITableDetailItem> = [
+    {
+      status:100,
+      date:Date.now(),
+      serialNumber:"MS-1 1234",
+      partia:"П-12345678",
+      typeDetail:"Балка",
+      recovery:"Примерно",
+      camera:"MODEL-X1-X2-34"
+    },
+    {
+      status:30,
+      date:Date.now(),
+      serialNumber:"MS-1 1234",
+      partia:"П-12345678",
+      typeDetail:"Балка",
+      recovery:"Примерно",
+      camera:"MODEL-X1-X2-34"
+    },
+        {
+      status:50,
+      date:Date.now(),
+      serialNumber:"MS-1 1234",
+      partia:"П-12345678",
+      typeDetail:"Балка",
+      recovery:"Примерно",
+      camera:"MODEL-X1-X2-34"
+    },
+];
 function DetailPage(){
     return (
     <TemplatePage>
       <section className="sort-container">
-        <Select title="Тип детали" options={templateOptions}/>
-        <Select title="Партия" options={templateOptions}/>
         <Select title="Статус" options={templateOptions}/>
-        <Select title="Заказ" options={templateOptions}/>
-        <Select title="Склад" options={templateOptions}/>
+        <input type="date"/>
+        <Select title="Обьект" options={templateOptions}/>
+        <Select title="Партия" options={templateOptions}/>
+        <Select title="Тип детали" options={templateOptions}/>
+        <Select title="Восстановление" options={templateOptions}/>
+         <Select title="Камера" options={templateOptions}/>
         <Button>
-          <IconSearch/>
+        <IconSearch/>
         </Button>
         <Button>
           <IconX/>
         </Button>
       </section>
-       <Table header={[{text:"1".repeat(100)},{text:"title 2"},{text:"title 3"}]} body={new Array(3).fill(["1".repeat(10),"2".repeat(10),<Button>asd</Button>])}/>
+      <TableDetails  items={templateData}/>
     </TemplatePage>);
 }
 

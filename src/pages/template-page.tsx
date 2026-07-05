@@ -3,7 +3,6 @@ import "@styles/template.css";
 import { IconListDetails, IconClipboard } from "@tabler/icons-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { ModalDetailInfo, ModalOrderInfo, ModalScanInfo } from "@components/Modal";
 import { InputSearch } from "@components/Input";
 import { Button } from "@components/Button";
 
@@ -19,9 +18,6 @@ function TemplatePage({children}:{children?:React.ReactNode}){
             <h1 className="template-navbar__logo">Sorting-system</h1>
             <InputSearch className="template-navbar__search" setValue={setSearchValue} value={searchValue}/>
             <div className="template-navbar__buttons">
-                <ModalDetailInfo/>
-                <ModalOrderInfo/>
-                <ModalScanInfo/>
                 <Button onClick={()=>navigate("/")}>
                     <IconListDetails/>
                 </Button>
