@@ -5,8 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { InputSearch } from "@components/Input";
 import { Button } from "@components/Button";
-
-
+import { ModalSetting } from "@/components/Modal";
 
 function TemplatePage({children}:{children?:React.ReactNode}){
     const [searchValue, setSearchValue] = useState<string>("");
@@ -24,6 +23,7 @@ function TemplatePage({children}:{children?:React.ReactNode}){
                 <Button onClick={()=>navigate("/orders")}>
                     <IconClipboard/>
                 </Button>
+                <ModalSetting/>
             </div>
         </nav>
         <section className="template-page-content">
