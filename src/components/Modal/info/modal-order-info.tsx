@@ -1,4 +1,4 @@
-import styles from "./modal.module.css";
+import styles from "../modal.module.css";
 import { useState } from "react";
 import { IconClipboard,
         IconFileTypography,

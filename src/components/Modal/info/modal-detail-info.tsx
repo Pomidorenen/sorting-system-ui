@@ -11,7 +11,7 @@ import { IconTable,
 } from '@tabler/icons-react';
 import { Button } from "@components/Button";
 import ModalInfo from "./modal-info";
-import { List } from "../List";
+import { List } from "../../List";
 import { Select } from "@components/Select";
 
 const listSidebar:Array<List.IListItem> = [

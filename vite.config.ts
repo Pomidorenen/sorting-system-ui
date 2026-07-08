@@ -1,8 +1,14 @@
-import { defineConfig } from "vite";
+import { defineConfig, ProxyOptions  } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const host = process.env.TAURI_DEV_HOST;
+
+const apiProxyOptions: ProxyOptions = {
+  target: 'http://localhost:5000/api',
+  changeOrigin: true,
+  rewrite: (path) => path.replace(/^\/api/, ''),
+};
 
 // https://vite.dev/config/
 export default defineConfig(async () => ({
@@ -13,6 +19,8 @@ export default defineConfig(async () => ({
   // 1. prevent Vite from obscuring rust errors
   clearScreen: false,
   // 2. tauri expects a fixed port, fail if that port is not available
+
+  
   server: {
     port: 1420,
     strictPort: true,
@@ -28,4 +36,7 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**"],
     },
   },
+   proxy: {
+      '/api': apiProxyOptions,
+    },
 }));

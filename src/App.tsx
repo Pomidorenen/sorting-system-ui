@@ -14,6 +14,7 @@ function AnimationRoute(){
               </Routes>
           </div>
 }
+
 function App() {
   return (
     <main>

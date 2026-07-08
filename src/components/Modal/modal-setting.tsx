@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IconSettings } from "@tabler/icons-react";
 import { Modal } from "@components/Modal";
 import { Button } from "@components/Button";
-import { useThemeStore } from '@storages/ThemStorage/them-storage';
+import { useThemeStore } from '@storages/ThemStorage';
 
 function ModalSetting(){
     const [isOpen, setOpen] = useState<boolean>(false);

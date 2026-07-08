@@ -1,5 +1,5 @@
-import Modal from "./modal";
-import styles from "./modal.module.css";
+import {Modal} from "@components/Modal";
+import styles from "../modal.module.css";
 
 
 function ModalInfo({action,body,sidebar,...props}:Modal.IModaInfoProps){

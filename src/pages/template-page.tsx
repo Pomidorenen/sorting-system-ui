@@ -29,6 +29,7 @@ function TemplatePage({children}:{children?:React.ReactNode}){
         <section className="template-page-content">
             {children}
         </section>
+        {import.meta.env.DEV}
     </section>);
 }
 
