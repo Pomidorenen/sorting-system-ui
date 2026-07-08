@@ -56,6 +56,7 @@ function DetailPage(){
         <Select title="Восстановление" options={templateOptions}/>
          <Select title="Камера" options={templateOptions}/>
         <Button>
+    
         <IconSearch/>
         </Button>
         <Button>

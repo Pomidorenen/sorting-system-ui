@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios,{AxiosInstance } from "axios";
 
-const host = axios.create({
-    baseURL: import.meta.env.BASE_URL
+const host:AxiosInstance  = axios.create({
+    baseURL: "http://localhost:5000"
 });
 
 

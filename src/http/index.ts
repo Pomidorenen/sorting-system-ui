@@ -1,6 +1,6 @@
-import detailApi from "./detail-api";
+import UserApi from "./user-api";
 
 
 export {
-    detailApi
+    UserApi
 }
