@@ -1,5 +1,5 @@
 import { ICustomer } from "./customer";
-import { IOrderItem, IOrders } from "./oreders";
+import { IOrderItem, IOrders, OrderStatus } from "./oreders";
 import { IPartType } from "./part-types";
 import { IUser } from "./user";
 import { IWarehouse } from "./warehouse";
@@ -37,16 +37,32 @@ interface IPartOrders extends Omit<IOrders,"fullPrice"|"orderItems">{
     quantity:number;
     required_quantity:number;
 }
+interface IPartOrderChangeResult {
+    "order_id": number;
+    "order_number": string;
+    "customer_id": number;
+    "priority": number;
+    "status": OrderStatus;
+    "notes": string;
+    "created_at": string;
+    "orderItems":Omit<IOrderItem,"partType"|"orderItemParts">;
+}
 
+interface IPartSort{
+    isSorted:boolean;
+    order:Omit<IOrders,"fullPrice"|"completedPercentage"|"orderItems"|"customer">|{customer:Omit<ICustomer,"address">}
+}
 type PartOrders = Array<IPartOrders>
 type PartNew = Pick<IParts,"batch_number"|"warehouse_id"|"part_type_id">
 
 export type {
     IParts,
-    PartStatus,
     IPartsGetOne,
     IPartGetAll,
     IPartOrderChange,
+    IPartOrderChangeResult,
+    IPartSort,
+    PartStatus,
     PartOrders,
     PartNew
 }

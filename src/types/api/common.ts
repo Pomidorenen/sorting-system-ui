@@ -8,10 +8,16 @@ interface IRemoveById{
 }
 
 interface IResponce{
+    status?:number;
     message: string;
+}
+interface IRestrictions{
+    limit?:number;
+    offset?:number;
 }
 export type {
     GetAll,
     IRemoveById,
-    IResponce
+    IResponce,
+    IRestrictions
 }

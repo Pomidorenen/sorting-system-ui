@@ -24,6 +24,10 @@ interface IOrders{
     "orderItems":IOrderItem;
 }
 
+interface IOrdersNew extends Omit<IOrders,"orderItems"|"completedPercentage">{
+    "customer":Omit<ICustomer,"address">;
+}
+
 interface IOrderItemPart{
     order_item_id:number; 
     order_item_part_id:number;
@@ -39,17 +43,22 @@ interface IOrderItem{
     "part_type_id": number;
     "required_quantity":number;
     "price": string;
-    "partType":Omit<IPartType,"type_code">
-    "orderItemParts":Array<IOrderItemWithPart>
+    "partType":Omit<IPartType,"type_code">;
+    "orderItemParts":Array<IOrderItemWithPart>;
 }
 
 type OrdersNew = Pick<IOrders,"customer_id"|"notes"|"priority">
-
+type OrdersItemNew = {
+    order_id:number,
+    part_type_id:number,
+    required_quantity:number
+}
 export type {
     IOrders,
+    IOrdersNew,
     IOrderItem,
     IOrderItemWithPart,
     OrdersNew,
-    OrderStatus,
-    
+    OrdersItemNew,
+    OrderStatus
 }
