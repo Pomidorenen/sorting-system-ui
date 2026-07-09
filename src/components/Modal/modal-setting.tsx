@@ -48,6 +48,7 @@ const optionsTheme:Array<{
            name:"Лес" 
         }
        ]; 
+       
 const onChangeColorHandler = (dispatch:Dispatch<string>)=>(e:React.ChangeEvent<HTMLInputElement>)=>{dispatch(e.target.value)};
 function ModalSetting(){
     const { setTheme,setCustomTheme,customThemeVars, resetCustomTheme } = useThemeStore();
