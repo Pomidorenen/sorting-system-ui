@@ -3,6 +3,9 @@ import { Select } from "@components/Select";
 import { Button } from "@components/Button";
 import { IconSearch, IconX } from "@tabler/icons-react";
 import { TableOrders } from "@components/Table";
+import { InputDate } from "@components/Input";
+import { useEffect, useState } from "react";
+import { OrdesrApi } from "@/http";
 
 const templateOptions:Array<Select.IOption> = [
   {
@@ -15,40 +18,34 @@ const templateOptions:Array<Select.IOption> = [
   }
 ]
 
-const templateData:Array<Table.ITableOrderItem> = [
-    {
-        compound:["Доска20x20","Саморез80x20","Гвоздь20x2"],
-        status:75,
-        nameCompany:"ООО 'Павлик'",
-        notes:"Текст заметки",
-        price:25000,
-        priorety:5
-    },
-    {
-        compound:["Доска20x20","Саморез80x20","Гвоздь20x2"],
-        status:25,
-        nameCompany:"ООО 'Павлик'",
-        notes:"Текст заметки",
-        price:25000,
-        priorety:5
-    },
-        {
-        compound:["Доска20x20","Саморез80x20","Гвоздь20x2"],
-        status:55,
-        nameCompany:"ООО 'Павлик'",
-        notes:"Текст заметки",
-        price:15000,
-        priorety:5
-    }
-];
 function OrderPage(){
-
+    const [data,setDate] = useState<Array<Table.ITableOrderItem>>([]);
+    const [loading,setLoading] = useState(true);
+    useEffect(()=>{
+      OrdesrApi.getAll({limit:100,offset:0}).then(data=>{
+          const list:Array<Table.ITableOrderItem> = new Array(data.rows.length);
+          console.log(data)
+          for(var i = 0; i<data.rows.length;i++){
+            var element = data.rows[i];
+            list[i] = {
+              compound:(element.orderItems.length != 0?element.orderItems.map(el=>el.partType.name):[]),
+              status:element.status,
+              nameCompany:element.customer.company_name,
+              notes:element.notes,
+              price:element.fullPrice,
+              priorety:element.priority  
+            };
+          }
+          setLoading(false)
+          setDate(list);
+      })
+    },[]);
     return (<TemplatePage>
                 <section className="sort-container">
                 <Select title="Приоритет" options={templateOptions}/>
                 <Select title="Название организации" options={templateOptions}/>
                 <Select title="Срок выполнения" options={templateOptions}/>
-                <input type="date"/>
+                <InputDate title="Срок выполнения"/>
             <Button>
               <IconSearch/>
             </Button>
@@ -56,7 +53,7 @@ function OrderPage(){
               <IconX/>
             </Button>
           </section>
-            <TableOrders items={templateData}/>
+           {!loading && <TableOrders items={data}/>} 
     </TemplatePage>);
 }
 

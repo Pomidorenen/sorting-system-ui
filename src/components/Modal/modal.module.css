@@ -168,3 +168,15 @@
     display: grid;
       grid-template-columns: 1fr 1fr 1fr;
 }
+
+/* modal descs */
+.modal-desc{
+    min-width: 15dvw;
+    max-height: 40dvh;
+}
+.modal-desc-body{
+    display: flex;
+    padding: 8px;
+    max-height: 30dvh;
+    overflow-y: scroll;
+}

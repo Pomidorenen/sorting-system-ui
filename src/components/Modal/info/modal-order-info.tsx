@@ -1,6 +1,6 @@
 import styles from "../modal.module.css";
 import { useState } from "react";
-import { IconClipboard,
+import { IconPencil,
         IconFileTypography,
         IconDialpad,
         IconCube,
@@ -27,6 +27,7 @@ const listSidebar:Array<List.IListItem> = [
     {text:"Распределен в ",icon:<IconArrowsTransferUpDown/>}
 ];
 
+
 function BodyOrderInfo(){
     return <div className={styles["modal-detail-info-body"]}>
             <div style={{width:"50%"}}>
@@ -34,6 +35,7 @@ function BodyOrderInfo(){
                         items={new Array(7).fill({text:"1".repeat(100)})}/>
                 <Select 
                         options={[{name:"не выбран",value:"не выбран"}]}/>
+                       
             </div>
             <div className={styles["modal-detail-info-body__bar-container"]}>
                 <ProgresbarRing strokeWidth={10} value={41} maxValue={50} />
@@ -46,7 +48,7 @@ function ModalOrderInfo(){
     const [isOpen, setIsOpen] = useState(false);
     return <>
         <Button onClick={()=>setIsOpen(true)}>
-            <IconClipboard/>
+            <IconPencil />
         </Button>
         <ModalInfo  title="Информация о Заказе" 
                     isOpen={isOpen} 

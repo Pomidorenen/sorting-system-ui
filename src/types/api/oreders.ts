@@ -21,7 +21,7 @@ interface IOrders{
     "fullPrice": number;
     "completedPercentage": number;
     "customer":Pick<ICustomer,"customer_id"|"company_name">;
-    "orderItems":IOrderItem;
+    "orderItems":Array<IOrderItem>;
 }
 
 interface IOrdersNew extends Omit<IOrders,"orderItems"|"completedPercentage">{

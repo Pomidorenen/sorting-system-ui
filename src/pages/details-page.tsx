@@ -3,7 +3,7 @@ import { Select } from "@components/Select";
 import { Button } from "@components/Button";
 import { IconSearch, IconX } from "@tabler/icons-react";
 import { TableDetails } from "@/components/Table";
-
+import { InputDate } from "@components/Input";
 
 const templateOptions:Array<Select.IOption> = [
   {
@@ -49,14 +49,13 @@ function DetailPage(){
     <TemplatePage>
       <section className="sort-container">
         <Select title="Статус" options={templateOptions}/>
-        <input type="date"/>
+        <InputDate title="Дата сканирования"/>
         <Select title="Обьект" options={templateOptions}/>
         <Select title="Партия" options={templateOptions}/>
         <Select title="Тип детали" options={templateOptions}/>
         <Select title="Восстановление" options={templateOptions}/>
          <Select title="Камера" options={templateOptions}/>
         <Button>
-    
         <IconSearch/>
         </Button>
         <Button>
@@ -64,6 +63,7 @@ function DetailPage(){
         </Button>
       </section>
       <TableDetails  items={templateData}/>
+
     </TemplatePage>);
 }
 

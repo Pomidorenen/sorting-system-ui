@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconScan,
+import { IconPencil,
         IconFileTypography,
         IconDialpad,
         IconCube,
@@ -41,7 +41,7 @@ function ModalScanInfo(){
     const [isOpen, setIsOpen] = useState(false);
     return <>
         <Button onClick={()=>setIsOpen(true)}>
-            <IconScan />
+            <IconPencil  />
         </Button>
         <ModalInfo  title="Scan" 
                     isOpen={isOpen} 

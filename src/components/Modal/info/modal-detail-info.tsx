@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconTable,
+import { IconPencil,
          IconFileTypography,
         IconDialpad,
         IconCube,
@@ -37,7 +37,7 @@ function ModalDetailInfo(){
     const [isOpen, setIsOpen] = useState(false);
     return <>
         <Button onClick={()=>setIsOpen(true)}>
-            <IconTable />
+            <IconPencil  />
         </Button>
         <ModalInfo  title="Информация о детали" 
                     isOpen={isOpen} 

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from 'react-dom';
 import { IconXFilled, IconInfoCircleFilled } from '@tabler/icons-react';
 
-function Modal({children,iconTitle,title,isOpen,onClose}:Modal.IModalProps){
+function Modal({children,iconTitle,title,isOpen,onClose,className}:Modal.IModalProps){
     const [isClosing, setIsClosing] = useState(false);
 
     const onCloseHandler = () => {
@@ -29,14 +29,14 @@ function Modal({children,iconTitle,title,isOpen,onClose}:Modal.IModalProps){
     if (!isOpen) return null;
     return createPortal(
         <div  
-                className={`${styles['modal-overlay']} ${isClosing ? styles["modal-overlay--closing"] : ''}`} 
+                className={`${styles['modal-overlay']} ${isClosing ? styles["modal-overlay--closing"] : ''}` } 
                 role="dialog" 
                 aria-modal="true" 
                 aria-labelledby="modal-title" 
                 aria-describedby="modal-desc"
                 onClick={onCloseHandler}
                 >
-            <div    className={styles['modal-window']} 
+            <div    className={[styles['modal-window'],className].join(" ")} 
                     onClick={(e)=>e.stopPropagation()}>
                 <header className={styles["modal-header"]}>
                         <div className={styles["modal-title"]}>

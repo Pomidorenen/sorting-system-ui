@@ -1,17 +1,43 @@
 import Table from "./table"
-import { List } from "../List";
-import { ProgresbarRing } from "../Progresbar";
-import { ModalOrderInfo } from "../Modal";
+import { useState } from "react";
+import { List } from "@components/List";
+import { ProgresbarRing } from "@components/Progresbar";
+import { ModalDesc, ModalOrderInfo } from "@components/Modal";
+import { Button } from "@components/Button";
 
 function TableOrdersRow({priorety,nameCompany,notes,compound,price,status}:Table.ITableOrderItem){
+    var statusValue = 0;
+    switch (status){
+        case 'pending': 
+            statusValue = 10; 
+            break;
+        case 'in_production':
+            statusValue = 50; 
+            break;
+        case 'sorting': 
+            statusValue = 100; 
+            break;
+        case 'completed':
+            statusValue = 100; 
+            break;
+        case 'canceled':
+            statusValue = 0;
+            break;
+    }
+    const [isOpen, setOpen] = useState(false);
     return [
         String(priorety),
         nameCompany,
         notes,
-        <List items={compound.map(text=>({text}))}/>,
+        <>
+            <Button onClick={()=>setOpen(true)}>Подробнее</Button>
+            <ModalDesc title="Состав" isOpen={isOpen} onClose={()=>setOpen(false)}>
+                <List items={compound.map(text=>({text}))}/>
+            </ModalDesc>
+        </>,
         String(price)+"р",
         <ModalOrderInfo/>,
-        <ProgresbarRing strokeWidth={10} maxValue={100} value={status}/>
+        <ProgresbarRing strokeWidth={10} maxValue={100} value={statusValue}/>
     ];
 }
 

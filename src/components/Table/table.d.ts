@@ -1,4 +1,12 @@
+
 namespace Table{
+    enum OrderStatus {
+        'pending'='pending', 
+        'in_production' = 'in_production', 
+        'sorting' =  'sorting', 
+        'completed' = 'completed', 
+        'canceled' = 'canceled'
+    }   
     interface ITableHeader{
         text:String;
     }
@@ -15,7 +23,7 @@ namespace Table{
         notes:string;
         compound:Array<string>;
         price: number;
-        status: number;
+        status: OrderStatus;
     }
     interface ITableDetailItem{
         status: number;
