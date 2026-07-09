@@ -15,7 +15,7 @@ function TemplatePage({children}:{children?:React.ReactNode}){
     <section className="template-page">
         <nav className="template-navbar">
             <h1 className="template-navbar__logo">Sorting-system</h1>
-            <InputSearch className="template-navbar__search" setValue={setSearchValue} value={searchValue}/>
+            <InputSearch className="template-navbar__search" onChange={(e)=>setSearchValue(e.target.value)} value={searchValue}/>
             <div className="template-navbar__buttons">
                 <Button onClick={()=>navigate("/")}>
                     <IconListDetails/>

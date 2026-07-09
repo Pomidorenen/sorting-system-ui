@@ -140,3 +140,31 @@
     justify-content: center;
     gap:8px;
 }
+
+
+/* modal styles setting */
+.modal-setting{
+     display:grid;
+     grid-template-columns:1fr 2fr; 
+     gap: 12px; 
+     padding:20px; 
+}
+.modal-setting__user-info{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap:8px;
+
+    background-color: var(--second-background-color);
+    padding: 8px;
+    border-radius:8px;
+}
+.modal-setting__colors{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap:8px;
+}
+.modal-setting__colors-container{
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+}

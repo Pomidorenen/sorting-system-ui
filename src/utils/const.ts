@@ -54,6 +54,24 @@ const themes = {
     '--hover-color': 'color-mix(in srgb, var(--button-color), var(--text-color) 35%)',
     '--input-color': 'rgba(50, 66, 50, 1)',
   },
+  white:{
+    '--background-color': '#F5F5F5',
+    '--second-background-color': '#D6D6D6',
+    '--text-color': 'rgba(0, 0, 0, 1)',
+    '--button-color': '#86C232',
+    '--button-text-color': '#FFF',
+    '--hover-color': 'color-mix(in srgb, var(--button-color)70%, var(--text-color) 5%)',
+    '--input-color': 'rgb(191, 205, 191)'
+  },
+  black:{
+    '--background-color': '#232629',
+    '--second-background-color': '#474A4F',
+    '--text-color': '#FFF',
+    '--button-color': '#86C232',
+    '--button-text-color': 'rgba(0, 0, 0, 1)',
+    '--hover-color': 'color-mix(in srgb, var(--button-color), var(--text-color) 35%)',
+    '--input-color': '#1E2021',
+  }
 } as const;
 
 type ThemeName = keyof typeof themes;

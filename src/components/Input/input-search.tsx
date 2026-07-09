@@ -2,11 +2,7 @@ import styles from "./input.module.css";
 import { IconSearch } from '@tabler/icons-react';
 
 
-function InputSearch({value, setValue, className, ...props}:Input.IInputProps){
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
-        props.onChange && props.onChange(e);
-    };
+function InputSearch({value, onChange, className, ...props}:Input.IInputProps){
     return (<div className={[styles["input-search"],className].join(" ")}>
                 <div  className={styles["input-search__icon"]}>
                     <IconSearch stroke={2}/>
@@ -14,7 +10,7 @@ function InputSearch({value, setValue, className, ...props}:Input.IInputProps){
                 <input 
                     className={styles["input-search__input"]}
                     value={value}
-                    onChange={onChangeHandler}
+                    onChange={onChange}
                     placeholder="Поиск..."
                     type="search"/>
         </div>);

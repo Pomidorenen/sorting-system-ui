@@ -7,7 +7,7 @@
 }
 
 .select-title {
-  font-size: 12px;
+  font-size:calc(var(--font-size) * 12px);
   font-weight: 500;
   color: var(--text-color);
 }
@@ -22,7 +22,7 @@
   
   cursor: pointer;
   font-family: inherit;
-  font-size: 14px;
+  font-size: calc(var(--font-size) * 14px);
 }
 
 .select-content:hover {

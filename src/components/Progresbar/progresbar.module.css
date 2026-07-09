@@ -20,7 +20,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-size: calc(var(--size-bar) / 6);
+    font-size: calc(var(--size-bar) *  var(--font-size) / 6);
     font-weight: bold;
 
     color:var(--active-color,--text-color);
