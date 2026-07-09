@@ -7,6 +7,7 @@ import OrdesrApi from "./orders-api";
 import PartTypeApi from "./part-types-api";
 import PartsApi from "./parts-api";
 import ShiftApi from "./shift-api";
+import LogScanApi from "./log-scan-api";
 
 export {
     UserApi,
@@ -17,5 +18,6 @@ export {
     OrdesrApi,
     PartTypeApi,
     PartsApi,
-    ShiftApi
+    ShiftApi,
+    LogScanApi
 }
