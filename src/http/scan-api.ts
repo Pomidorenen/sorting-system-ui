@@ -4,8 +4,13 @@ import { IScan} from "#types/api/scan";
 
 class ScanApi {
     private route = "/api/service/";
-    public async scan(data:IScan):Promise<IResponce>{
-        return (await host.post(this.route + "scan",data)).data;
+    public async scan({image,...data}:IScan):Promise<IResponce>{
+        const formData = new FormData();
+        formData.append("image",image);
+        Object.entries(data).forEach(([key, value]) => {
+            formData.append(key, String(value));
+        });
+        return (await host.post(this.route + "scan",formData)).data;
     }
 }
 

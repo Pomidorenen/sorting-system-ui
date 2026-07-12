@@ -5,6 +5,7 @@ import { IconSearch, IconX } from "@tabler/icons-react";
 import { TableOrders } from "@components/Table";
 import { useEffect, useReducer } from "react";
 import { OrdesrApi } from "@/http";
+import { useLogStore } from "@storages/LogStorage";
 
 const allOption = {name:"все",value:"all"};
 const statusOptions:Array<Select.IOption> = [
@@ -94,6 +95,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 function OrderPage(){
+    const {error} = useLogStore();
     const [state, dispatch] = useReducer(reducer, initialState);
        useEffect(()=>{
         OrdesrApi.getAll({limit:100,offset:0}).then(data=>{
@@ -116,6 +118,8 @@ function OrderPage(){
                 list,
                 options: [allOption, ...Array.from(setCompanyName).map((el)=>({name:String(el),value:String(el)}))],
             }})
+      }).catch((e)=>{
+        error("Not conection 'order table'");
       })
     },[]);
     

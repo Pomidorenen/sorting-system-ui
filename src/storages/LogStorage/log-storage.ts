@@ -48,7 +48,7 @@ const {getId,isRemoveId} = (()=>{
         isRemoveId:()=>{flag=true}
     }
 })();
-const MAX_LOG = 10;
+const MAX_LOG = 1000;
 const newLog = (set:LogSetState) => (type:TypeLog) => (description:string)=>{
     var addedLog:number;
     set(state=>{

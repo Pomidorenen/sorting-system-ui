@@ -8,6 +8,7 @@ import PartTypeApi from "./part-types-api";
 import PartsApi from "./parts-api";
 import ShiftApi from "./shift-api";
 import LogScanApi from "./log-scan-api";
+import cameraApi from "./camera-api";
 
 export {
     UserApi,
@@ -19,5 +20,6 @@ export {
     PartTypeApi,
     PartsApi,
     ShiftApi,
-    LogScanApi
+    LogScanApi,
+    cameraApi
 }

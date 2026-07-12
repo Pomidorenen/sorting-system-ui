@@ -29,7 +29,7 @@ namespace Table{
     }
     interface ITableDetailItem{
         status: number;
-        date: number;
+        date: string;
         serialNumber: string;
         partia: string;
         typeDetail: string;

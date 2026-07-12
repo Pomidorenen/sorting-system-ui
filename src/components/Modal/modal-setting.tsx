@@ -11,6 +11,7 @@ import { ThemeName } from "@utils/const";
 import { useFontStore } from "@storages/FontStorage";
 import { InputColor, InputRange } from "@components/Input";
 import {onChangeWrapper} from "@utils/eventHandlers";
+import { useLogStore } from "@/storages/LogStorage";
 
 const optionsTheme:Array<{
         value:ThemeName,
@@ -52,6 +53,7 @@ const optionsTheme:Array<{
 
 function ModalSetting(){
     const { setTheme,setCustomTheme,customThemeVars, resetCustomTheme } = useThemeStore();
+    const { error} = useLogStore();
     const { setSize, currentSize } = useFontStore();
     const [isOpen, setOpen] = useState<boolean>(false);
     const [ curUser, setCurUser] = useState<IUser>();
@@ -76,6 +78,8 @@ function ModalSetting(){
         UserApi.whoMe().then((data)=>{
             setLoading(false);
             setCurUser(data);
+        }).catch((e)=>{
+            error("User not authorizate");
         });
     },[isOpen]);
     return  <>
