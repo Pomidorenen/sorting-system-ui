@@ -63,7 +63,6 @@ function DetailPage(){
         </Button>
       </section>
       <TableDetails  items={templateData}/>
-
     </TemplatePage>);
 }
 

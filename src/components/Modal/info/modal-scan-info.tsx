@@ -25,9 +25,7 @@ const listSidebar:Array<List.IListItem> = [
     {text:"Распределен в ",icon:<IconArrowsTransferUpDown/>}
 ];
 
-const placeHolderData:Array<List.IListItem> = [
 
-];
 function BodyScanInfo(){
     return <>
             <List   style={{width:"80%"}} 

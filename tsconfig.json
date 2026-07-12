@@ -44,6 +44,7 @@
     "src/components/Progresbar/progresbar.d.ts",
     "src/components/Button/button.d.ts",
     "src/components/List/list.d.ts",
-    "src/components/Table/table.d.ts"
+    "src/components/Table/table.d.ts",
+    "src/components/Logs/logs.d.ts"
   ],
 }

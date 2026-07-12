@@ -3,8 +3,9 @@ namespace Select {
         name: string;
         value: string;
     }
-    interface ISelectProps extends React.HTMLAttributes<HTMLSelectElement>{
+    interface ISelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
         title?: string;
         options: Array<IOption>;
+
     }
 }

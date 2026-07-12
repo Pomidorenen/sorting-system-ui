@@ -1,6 +1,7 @@
 import Table from "./table"
 import { ModalDetailInfo } from "@components/Modal";
 import { IconClock } from "@tabler/icons-react";
+import {formatDateToYYMMDDHHMM} from "@utils/formatDate";
 
 function TableDetailRow({status,date,serialNumber,partia,typeDetail,recovery,camera}:Table.ITableDetailItem){
     let colorStatus = "green";
@@ -9,20 +10,18 @@ function TableDetailRow({status,date,serialNumber,partia,typeDetail,recovery,cam
     }else if(status<= 66){
         colorStatus = "yellow";
     }
-    const dt =  new Date(date)
-    const yy = String(dt.getFullYear()).slice(-2);    
-    const mm = String(dt.getMonth() + 1).padStart(2, '0'); 
-    const dd = String(dt.getDate()).padStart(2, '0');     
-    return [
-        <IconClock color={colorStatus}/>,
-       `${yy}.${mm}.${dd}`,
-        serialNumber,
-        partia,
-        typeDetail,
-        recovery,
-        camera,
-        <ModalDetailInfo/>
-    ];
+    return (
+        <tr>
+            <td><IconClock color={colorStatus} /></td>
+            <td>{formatDateToYYMMDDHHMM(date)}</td>
+            <td>{serialNumber}</td>
+            <td>{partia}</td>
+            <td>{typeDetail}</td>
+            <td>{recovery}</td>
+            <td>{camera}</td>
+            <td><ModalDetailInfo/></td>
+        </tr>
+    );
 }
 function TableDetails({items,...props}:Table.ITableDetailProps){
 
@@ -36,7 +35,7 @@ function TableDetails({items,...props}:Table.ITableDetailProps){
                 {text:"Камера"},
                 {text:"Действие"}
             ]} 
-            body={items.map(item=>TableDetailRow(item))}
+            body={items.map((item, key)=><TableDetailRow key={key} {...item}/>)}
             {...props}/>
 }
 

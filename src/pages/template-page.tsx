@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { InputSearch } from "@components/Input";
 import { Button } from "@components/Button";
 import { ModalSetting } from "@/components/Modal";
+import { onChangeWrapper } from "@utils/eventHandlers";
 
 function TemplatePage({children}:{children?:React.ReactNode}){
     const [searchValue, setSearchValue] = useState<string>("");
@@ -15,7 +16,7 @@ function TemplatePage({children}:{children?:React.ReactNode}){
     <section className="template-page">
         <nav className="template-navbar">
             <h1 className="template-navbar__logo">Sorting-system</h1>
-            <InputSearch className="template-navbar__search" onChange={(e)=>setSearchValue(e.target.value)} value={searchValue}/>
+            <InputSearch className="template-navbar__search" onChange={onChangeWrapper(setSearchValue)} value={searchValue}/>
             <div className="template-navbar__buttons">
                 <Button onClick={()=>navigate("/")}>
                     <IconListDetails/>
@@ -29,7 +30,6 @@ function TemplatePage({children}:{children?:React.ReactNode}){
         <section className="template-page-content">
             {children}
         </section>
-        {import.meta.env.DEV}
     </section>);
 }
 

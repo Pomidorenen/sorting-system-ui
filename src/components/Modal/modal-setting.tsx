@@ -1,5 +1,5 @@
 import styles from "./modal.module.css";
-import { Dispatch, useEffect, useState, } from "react";
+import { useEffect, useState, } from "react";
 import { IconSettings } from "@tabler/icons-react";
 import { Modal } from "@components/Modal";
 import { Button } from "@components/Button";
@@ -10,7 +10,7 @@ import { Select } from "@components/Select";
 import { ThemeName } from "@utils/const";
 import { useFontStore } from "@storages/FontStorage";
 import { InputColor, InputRange } from "@components/Input";
-
+import {onChangeWrapper} from "@utils/eventHandlers";
 
 const optionsTheme:Array<{
         value:ThemeName,
@@ -49,7 +49,7 @@ const optionsTheme:Array<{
         }
        ]; 
        
-const onChangeColorHandler = (dispatch:Dispatch<string>)=>(e:React.ChangeEvent<HTMLInputElement>)=>{dispatch(e.target.value)};
+
 function ModalSetting(){
     const { setTheme,setCustomTheme,customThemeVars, resetCustomTheme } = useThemeStore();
     const { setSize, currentSize } = useFontStore();
@@ -85,7 +85,7 @@ function ModalSetting(){
                 <Modal isOpen={isOpen} onClose={()=>setOpen(false)} title="Настройки" iconTitle={<IconSettings/>}>
                     <div className={styles["modal-setting"]}>
                         <h3>Текущий пользователь</h3>
-                        {!loading && <div className={styles["modal-setting__user-info"]}>
+                        {!loading ? <div className={styles["modal-setting__user-info"]}>
                                 <span>
                                     Фамилия:
                                 </span>
@@ -104,7 +104,7 @@ function ModalSetting(){
                                 <span>
                                     {curUser?.middle_name} 
                                 </span>
-                        </div>}
+                        </div>:<div></div>}
                         <Select title="Темы" defaultValue="white" options={optionsTheme} onChange={(e)=>{
                             setTheme(e.target.value as ThemeName);
                         }}/>
@@ -114,12 +114,12 @@ function ModalSetting(){
                             Собственая тема:
                         </h5>
                         <div className={styles["modal-setting__colors-container"]}>
-                                <InputColor onChange={onChangeColorHandler(setBackgroundColor)} title="Фон" value={backgroundColor}/>
-                                <InputColor onChange={onChangeColorHandler(setFontColor)}  title="Текст" value={fontColor}/>
-                                <InputColor onChange={onChangeColorHandler(setButtonColor)} title="Кнопок" value={buttonColor}/>
+                                <InputColor onChange={onChangeWrapper(setBackgroundColor)} title="Фон" value={backgroundColor}/>
+                                <InputColor onChange={onChangeWrapper(setFontColor)}  title="Текст" value={fontColor}/>
+                                <InputColor onChange={onChangeWrapper(setButtonColor)} title="Кнопок" value={buttonColor}/>
                         </div>
                         <Button onClick={onClickCustomThem}>Применить</Button>
-                        <Button onClick={()=>resetCustomTheme()}>Отменить</Button>
+                        <Button onClick={resetCustomTheme}>Отменить</Button>
                     </div>
                 </div>
             </Modal>

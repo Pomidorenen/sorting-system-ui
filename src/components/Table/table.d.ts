@@ -9,16 +9,18 @@ namespace Table{
     }   
     interface ITableHeader{
         text:String;
+        sort?:()=>void;
+        sortDirection?: 'asc' | 'desc' | null; 
     }
     interface ITableProps extends React.HTMLAttributes<HTMLTableElement>{
         header:Array<ITableHeader>;
-        body:Array<Array<React.ReactElement | string>>;
+        body:Array<React.ReactElement | string>;
     }
     interface ITableCustomProps<T> extends React.HTMLAttributes<HTMLTableElement>{
         items:Array<T>;
     }
     interface ITableOrderItem{
-        priorety:number;
+        priority:number;
         nameCompany:string;
         notes:string;
         compound:Array<string>;
