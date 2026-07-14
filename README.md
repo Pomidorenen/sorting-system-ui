@@ -1,11 +1,153 @@
 
-# Tauri + React + Typescript
+# Sorting System UI — Frontend
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+Фронтенд-часть десктопного приложения «Система сортировки», построенная на базе **Tauri** + **React** + **TypeScript**.  
+Предоставляет пользовательский интерфейс для управления процессом сортировки, просмотра данных и взаимодействия с бэкендом через REST API.
 
-## Recommended IDE Setup
+---
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
-<img width="834" height="588" alt="image" src="https://github.com/user-attachments/assets/57efbad5-6b87-46ef-bc42-7ebdcd14473b" />
-<img width="783" height="551" alt="image" src="https://github.com/user-attachments/assets/6dcb583e-4226-484f-b7b9-70f281e38ca8" />
+## Стек технологий
+
+| Технология       | Назначение                                                                 
+|------------------|----------------------------------------------------------------------------
+| **React 19**     | Библиотека для построения пользовательских интерфейсов                   
+| **TypeScript**   | Статическая типизация для надёжности и удобства разработки                
+| **Vite**         | Сборщик и инструмент разработки с быстрым HMR                             
+| **Tauri**        | Фреймворк для создания нативных приложений (используется как обёртка)    
+| **Zustand**      | Лёгкое управление состоянием (стейт-менеджер)                            
+| **React Router** | Клиентская маршрутизация                                                 
+| **Axios**        | HTTP-клиент для взаимодействия с бэкендом                                
+| **Tabler Icons** | Набор иконок для UI                                                     
+
+---
+
+## Структура проекта
+
+```
+src/
+├── assets/           # Статические ресурсы (изображения, иконки)
+│   ├── icons/
+│   └── images/
+├── components/       # Переиспользуемые UI-компоненты
+│   ├── Button/
+│   ├── Form/
+│   ├── List/
+│   ├── Logs/
+│   ├── Modal/
+│   ├── Progresbar/
+│   ├── Select/
+│   └── Table/
+├── http/             # Настройка HTTP-клиента (Axios) и API-запросы
+├── pages/            # Страницы приложения (каждая соответствует маршруту)
+├── storages/         # Zustand-хранилища (стейт-менеджеры)
+├── styles/           # Глобальные стили и темы
+├── types/            # Общие TypeScript-типы и интерфейсы
+├── utils/            # Вспомогательные функции
+├── main.tsx          # Точка входа
+└── App.tsx           # Корневой компонент с маршрутизацией
+```
+
+---
+
+## Установка и запуск
+
+### Требования
+
+- Node.js (версия 20+)
+- npm или yarn
+- Rust (для сборки Tauri — опционально, если запускаете только фронтенд)
+
+### Клонирование репозитория
+
+```bash
+git clone <repository-url>
+cd sorting-system-ui
+```
+
+### Установка зависимостей
+
+```bash
+npm install
+```
+
+### Запуск в режиме разработки
+
+```bash
+npm run dev
+```
+
+Приложение будет доступно по адресу [http://localhost:1420](http://localhost:1420).  
+Для API-запросов настроен прокси на `http://localhost:5000/api` (см. `vite.config.ts`).
+
+### Сборка для продакшена
+
+```bash
+npm run build
+```
+
+### Предпросмотр собранного приложения
+
+```bash
+npm run preview
+```
+
+### Запуск через Tauri (десктопное приложение)
+
+```bash
+npm run tauri dev    # разработка
+npm run tauri build  # сборка нативного приложения
+```
+
+---
+
+
+### Прокси для API
+
+В режиме разработки Vite проксирует запросы с `/api` на бэкенд, запущенный локально на порту `5000`.  
+Настройка выполняется в `vite.config.ts`:
+
+```ts
+const apiProxyOptions: ProxyOptions = {
+  target: 'http://localhost:5000/api',
+  changeOrigin: true,
+  rewrite: (path) => path.replace(/^\/api/, ''),
+};
+```
+
+Если ваш бэкенд запущен на другом порту или хосте, измените `target` соответственно.
+
+### Переменные окружения
+
+Для продакшен-сборки можно использовать файл `.env` (не входит в репозиторий) с переменной `VITE_API_BASE_URL`, которая будет подставлена в HTTP-клиент (рекомендуется).  
+Пример:
+
+```env
+VITE_API_BASE_URL=https://api.example.com
+```
+
+---
+
+
+## Доступные скрипты
+
+| Команда            | Описание                                                         
+|--------------------|------------------------------------------------------------------
+| `npm run dev`      | Запуск в режиме разработки (Vite)                               
+| `npm run build`    | Сборка (TypeScript-компиляция + Vite build)                    
+| `npm run preview`  | Предпросмотр собранной версии                                  
+| `npm run tauri`    | Вызов CLI Tauri (например, `npm run tauri dev`)                
+| `npm run tauri dev`| Запуск приложения в Tauri (разработка)                        
+| `npm run tauri build` | Сборка нативного приложения через Tauri                    
+
+---
+
+## Дополнительные сведения
+
+- **Типизация:** все компоненты и хуки строго типизированы.
+- **Маршрутизация:** управляется React Router (см. `App.tsx`).
+- **Иконки:** используется библиотека `@tabler/icons-react`.
+- **Логи:** в `index.html` присутствует отдельный контейнер `<div id="logs">` для вывода логов (интеграция с системой логов приложения).
+- **Модальные окна:** контейнер `<div id="modal">` для рендеринга модальных окон через порталы.
+
+---
 
